@@ -1,0 +1,37 @@
+import pandas as pd
+import numpy as np
+import plotly.plotly as py
+import plotly.graph_objs as go
+import csv
+
+f = pd.read_csv('HDI.csv')
+f.head()
+
+trace1 = go.Scatter(x=f['year'], y=f['OECD'], #data on xy axis
+                    marker={'color': 'red', 'symbol': 0, 'size': "5"},
+                    mode="markers+lines",  name='OECD')
+trace2 = go.Scatter(x=f['year'], y=f['Central & Eastern Europe (incl. Russia)'], #data on xy axis
+                    marker={'color': 'green', 'symbol': 0, 'size': "5"},
+                    mode="markers+lines",  name='Central & Eastern Europe (incl. Russia)')
+trace3 = go.Scatter(x=f['year'], y=f['Latin America'], #data on xy axis
+                    marker={'color': 'orange', 'symbol': 0, 'size': "5"},
+                    mode="markers+lines",  name='Latin America')
+trace4 = go.Scatter(x=f['year'], y=f['China'], #data on xy axis
+                    marker={'color': 'yellow', 'symbol': 0, 'size': "5"},
+                    mode="markers+lines",  name='China')
+trace5 = go.Scatter(x=f['year'], y=f['India'], #data on xy axis
+                    marker={'color': 'blue', 'symbol': 0, 'size': "5"},
+                    mode="markers+lines",  name='India')
+trace6 = go.Scatter(x=f['year'], y=f['Rest of Asia (excl. Japan)'], #data on xy axis
+                    marker={'color': 'purple', 'symbol': 0, 'size': "5"},
+                    mode="markers+lines",  name='Rest of Asia (excl. Japan)')
+trace7 = go.Scatter(x=f['year'], y=f['North Africa'], #data on xy axis
+                    marker={'color': 'cyan', 'symbol': 0, 'size': "5"},
+                    mode="markers+lines",  name='North Africa')
+trace8 = go.Scatter(x=f['year'], y=f['Sub-Saharan Africa'], #data on xy axis
+                    marker={'color': 'grey', 'symbol': 0, 'size': "5"},
+                    mode="markers+lines",  name='Sub-Saharan Africa')
+data=go.Data([trace1, trace2, trace3, trace4, trace5, trace6, trace7, trace8])
+layout=go.Layout(title="Line chart", xaxis={'title':'years'}, yaxis={'title':'HDI'})
+figure=go.Figure(data=data,layout=layout)
+py.iplot(figure, filename='line-chart-csv',sharing='public')
