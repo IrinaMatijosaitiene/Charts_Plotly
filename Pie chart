@@ -1,0 +1,10 @@
+trace1 = {
+  "labels": ['OECD','Central & Eastern Europe (incl. Russia)','Latin America','China','India',
+            'Rest of Asia (excl. Japan)','North Africa','Sub-Saharan Africa'], 
+  "type": "pie", 
+  "values": [0.809,0.537,0.52,0.47,0.311,0.417,0.389,0.22]
+}
+data = [trace1]
+layout = go.Layout(title="HDI in 2007")
+figure = go.Figure(data=data, layout=layout)
+py.plot(figure, filename='pie-chart-csv',sharing='public')
