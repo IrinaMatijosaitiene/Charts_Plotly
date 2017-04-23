@@ -1,0 +1,45 @@
+trace1 = go.Bar(
+    x=f['year'],
+    y=f['OECD'],
+    name='OECD'
+)
+trace2 = go.Bar(
+    x=f['year'],
+    y=f['Central & Eastern Europe (incl. Russia)'],
+    name='Central & Eastern Europe (incl. Russia)'
+)
+trace3 = go.Bar(
+    x=f['year'],
+    y=f['Latin America'],
+    name='Latin America'
+)
+trace4 = go.Bar(
+    x=f['year'],
+    y=f['China'],
+    name='China'
+)
+trace5 = go.Bar(
+    x=f['year'],
+    y=f['India'],
+    name='India'
+)
+trace6 = go.Bar(
+    x=f['year'],
+    y=f['Rest of Asia (excl. Japan)'],
+    name='Rest of Asia (excl. Japan)'
+)
+trace7 = go.Bar(
+    x=f['year'],
+    y=f['North Africa'],
+    name='North Africa'
+)
+trace8 = go.Bar(
+    x=f['year'],
+    y=f['Sub-Saharan Africa'],
+    name='Sub-Saharan Africa'
+)
+
+data = [trace1,trace2,trace3,trace4,trace5,trace6,trace7,trace8]
+layout = go.Layout(barmode='stack')
+figure = go.Figure(data=data, layout=layout)
+py.iplot(figure, filename='bar-chart-csv',sharing='public')
